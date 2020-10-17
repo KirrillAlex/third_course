@@ -10,7 +10,7 @@
     $check = sqrt(pow($left_side, 2) - pow((pow($differense_base, 2) + pow($left_side, 2) - pow($right_side, 2)) / (2 * $differense_base), 2));
 
 
-    
+
     if (round($check) == $height && $small_base >= 0 && $big_base >= 0
         && $left_side >= 0 && $right_side >= 0 && $height >= 0){
         if ($Why == TRUE){
