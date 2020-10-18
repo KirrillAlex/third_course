@@ -1,23 +1,40 @@
 <?php
-    $a = 'пять';
-    $b = 'восемь';
+$price = 16420;
 
-    $num_mass = ['ноль', 'один', 'два', 'три', 'четыре', 'пять', 'шесть', 'семь', 'восемь', 'девять'];
+$price += round($price * 0.13);
+$rub = intdiv($price, 100);
+$penny = $price % 100;
 
-    if (in_array($a, $num_mass) && in_array($b, $num_mass)){
-        $a = array_search($a, $num_mass);
-        $b = array_search($b, $num_mass);
-    }
-    else{
-        echo "Данные введены неверно!";
-    }
+$temp = (string)$rub;
+$temp1 = (string)$penny;
+switch ($temp[strlen($temp) - 1]) {
+    case 1:
+        $string1 = "рубль";
+        break;
+    case 2:
+    case 3:
+    case 4:
+        $string1 = "рубля";
+        break;
+    default:
+        $string1 = "рублей";
+        break;
+}
 
-    $result = $a + $b;
-    if ($result < 10){
-        echo"Результат: $result - маленькое число";
-    }
-    else {
-        echo"Результат: $result - большое число";
-    }
-    
+switch ($temp1[strlen($temp1) - 1]) {
+    case 1:
+        $string2 = "копейка";
+        break;
+    case 2:
+    case 3:
+    case 4:
+        $string2 = "копейки";
+        break;
+    default:
+        $string2 = "копеек";
+        break;
+}
+echo "Стоимость: ".$rub." ".$string1." ".$penny." ".$string2;
+echo "\nСтоимость: ".$rub.".".$penny."руб";
+
 ?>
