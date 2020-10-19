@@ -19,9 +19,13 @@ function filtration($range)
 {
     $simple_num = [];
     $another = [];
+    $flag = false;
 
     for ($i = $range[0]; $i < $range[1] + 1; $i++) {
-        if (isPrime($i)) {
+        if ($i == 1){
+            $flag = true;
+        }
+        else if (isPrime($i)) {
             $simple_num[] = $i;
         } else {
             $another[] = $i;
